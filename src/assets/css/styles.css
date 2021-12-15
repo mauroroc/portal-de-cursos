@@ -1,0 +1,21 @@
+.main-navbar {
+  background-color: #699EEE;
+}
+
+.main-navbar .navbar-toggler {
+  background-color: #FFF;
+}
+
+.main-navbar .nav-link {
+  background-color: #FFF;
+  border-radius: 3px;
+  text-align: center;
+  margin: 5px 0;
+  box-shadow: 2px 2px 2px rgba(42, 69, 136, 0.3);
+}
+
+@media (min-width: 768px) {
+  .main-navbar .nav-link {
+    margin: 0 5px;
+  }
+}
