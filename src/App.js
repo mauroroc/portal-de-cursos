@@ -3,10 +3,9 @@ import { Button, Navbar, Container, Nav } from 'react-bootstrap'
 import Logo from './assets/img/logo-infnet.png'
 import Banner from './assets/img/banner.jpg'
 
-function App() {
+function Header() {
   return (
-    <>
-      <header>
+    <header>
         <Navbar expand="md" className="main-navbar">
           <Container>
             <Navbar.Brand href="/">
@@ -22,7 +21,32 @@ function App() {
           </Container>
         </Navbar>
       </header>
+  )
+}
+
+function Footer() {
+  return (
+    <footer className='text-center footer'>
+      <p className='m-0'>Todos os direitos reservados ao Instituto Infnet</p>
+    </footer>
+  )
+}
+
+function Layout({ children }) {  
+  return (
+    <>
+      <Header />
       <main>
+        {children}
+      </main>
+      <Footer />
+    </>
+  )
+}
+
+function HomeView() {
+  return (
+    <Layout>      
         <Container>
           <div className='shadow border my-3 p-4 banner-home'>
             <div>
@@ -35,10 +59,22 @@ function App() {
               <img src={Banner} alt="banner" className="img-fluid" />
             </div>          
           </div>
-        </Container>
-        
-      </main>
-    </>
+        </Container>              
+    </Layout>
+  );
+}
+
+function NotFoundView() {
+  return (
+    <Layout>      
+        <h1>Página não encontrada</h1>      
+    </Layout>
+  )
+}
+
+function App() {
+  return (
+    <HomeView />
   );
 }
 
