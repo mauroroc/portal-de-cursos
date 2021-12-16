@@ -64,13 +64,13 @@ function HomeView() {
   );
 }
 
-function NotFoundView() {
+/*function NotFoundView() {
   return (
     <Layout>      
         <h1>Página não encontrada</h1>      
     </Layout>
   )
-}
+}*/
 
 function App() {
   return (
