@@ -31,7 +31,7 @@
   }
 
   .banner-home > div:first-child {
-    flex: 1 1 60%;
+    flex: 1;
   }
 }
 
@@ -52,4 +52,17 @@ html, body, #root {
 
 #root > main {
   flex: 1;
+}
+
+.grid-courses-item .card-course {
+  height: 100%;
+}
+
+.grid-courses-item .card-course .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-courses-item .card-course .btn {
+  margin-top: auto;
 }
