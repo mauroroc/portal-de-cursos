@@ -2,9 +2,20 @@ import { useState } from "react"
 import { Button, Form } from "react-bootstrap"
 
 function InscriptionForm () {
-    const[name, setName] = useState()
-    const[email, setEmail] = useState()
-    const[password, setPassword] = useState()
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: ''
+    })
+
+    const handleChange = (event) => {
+        const newFormData = {
+            ...formData
+        }
+        newFormData[event.target.name] = event.target.value
+        setFormData(newFormData)
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault()
     }
@@ -17,8 +28,9 @@ function InscriptionForm () {
                     <Form.Control 
                         type="text" 
                         placeholder="Informe seu nome"
-                        value={name}
-                        onChange={(event) => setName(event.target.value)} 
+                        value={formData.name}
+                        name='name'
+                        onChange={handleChange} 
                         required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="inscription-email">
@@ -26,8 +38,9 @@ function InscriptionForm () {
                     <Form.Control 
                         type="email" 
                         placeholder="Informe seu email" 
-                        value={email}
-                        onChange={(event) => setEmail(event.target.value)}
+                        value={formData.email}
+                        name='email'
+                        onChange={handleChange}
                         required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="inscription-password">
@@ -35,8 +48,9 @@ function InscriptionForm () {
                     <Form.Control 
                         type="password" 
                         placeholder="Informe sua senha" 
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
+                        value={formData.password}
+                        name='password'
+                        onChange={handleChange}
                         required />
                 </Form.Group>
                 <Button type="submit">Inscrever</Button>
