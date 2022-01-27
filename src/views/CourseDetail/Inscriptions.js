@@ -17,7 +17,7 @@ function Inscriptions({ items }) {
                     </thead>
                     <tbody>
                         {items.map((item) => (
-                                <tr>
+                                <tr key={item.id}>
                                     <td>{item.id}</td>
                                     <td>{item.name}</td>
                                     <td>{item.email}</td>

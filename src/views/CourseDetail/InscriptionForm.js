@@ -1,12 +1,17 @@
 import { useState } from "react"
-import { Button, Form } from "react-bootstrap"
+import { Alert, Button, Form } from "react-bootstrap"
 
-function InscriptionForm () {
-    const [formData, setFormData] = useState({
+const initialValue = {
         name: '',
         email: '',
         password: ''
-    })
+}
+
+function InscriptionForm ({ courseId, onRegister }) {
+    const [generalError, setGeneralError] = useState()
+    const [isSubmiting, setIsSubmiting] = useState(false)
+    const [showSuccess, setShowSucces] = useState(false)
+    const [formData, setFormData] = useState(initialValue)
 
     const handleChange = (event) => {
         const newFormData = {
@@ -16,12 +21,41 @@ function InscriptionForm () {
         setFormData(newFormData)
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
+    const handleSubmit = async (event) => {
+        try{
+            event.preventDefault()
+            setGeneralError(undefined)
+            setShowSucces(false)
+            setIsSubmiting(true)
+            const body = {
+                ...formData,
+                courseId: parseInt(courseId)
+            }
+            
+            await fetch('http://localhost:3001/inscriptions', {
+                method: 'POST',
+                body: JSON.stringify(body),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            setShowSucces(true)
+            setFormData(initialValue)
+            onRegister()
+        } catch {
+            setGeneralError('Falha ao realizar inscrição. Tente novamente.')
+        }   
+        setIsSubmiting(false)
     }
     return (
         <>
             <h2>Formulário de Inscrição</h2>
+            {generalError && (
+                <Alert variant="danger">{generalError}</Alert>
+            )}
+            {showSuccess && (
+                <Alert variant="success">Inscrito com sucesso.</Alert>
+            )}
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="inscription-name">
                     <Form.Label className="mb-0">Nome</Form.Label>
@@ -53,7 +87,7 @@ function InscriptionForm () {
                         onChange={handleChange}
                         required />
                 </Form.Group>
-                <Button type="submit">Inscrever</Button>
+                <Button type="submit" disabled={isSubmiting}>{isSubmiting ? "Enviando" : "Inscrever"}</Button>
             </Form> 
         </>
     )

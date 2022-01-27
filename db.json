@@ -42,5 +42,70 @@
       "coordinator": "Cristiano Neto",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry."
     }
+  ],
+  "inscriptions": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "name": "Fulano de Tal",
+      "email": "fulano@tal.com.br",
+      "password": "123456"
+    },
+    {
+      "name": "Mauro",
+      "email": "mauror@mauror.com.br",
+      "password": "123456",
+      "courseId": 1,
+      "id": 2
+    },
+    {
+      "name": "Mauro",
+      "email": "mauror@mauror.com.br",
+      "password": "gfghfgfh",
+      "courseId": 1,
+      "id": 3
+    },
+    {
+      "name": "gfdgfd",
+      "email": "fdgsdfg@fgdfdgf.com",
+      "password": "gfdgsdf",
+      "courseId": 1,
+      "id": 4
+    },
+    {
+      "name": "fdsgdfg",
+      "email": "mauror@mauror.com.br3",
+      "password": "dsdsfds",
+      "courseId": 1,
+      "id": 5
+    },
+    {
+      "name": "dsafdsf",
+      "email": "mauror@mauror.com.br4",
+      "password": "sdfsdf",
+      "courseId": 1,
+      "id": 6
+    },
+    {
+      "name": "Mauro",
+      "email": "mauror@mauror.com.br2",
+      "password": "34243",
+      "courseId": 1,
+      "id": 7
+    },
+    {
+      "name": "Mauro2",
+      "email": "mauror@mauror.com.br4",
+      "password": "fgdgf",
+      "courseId": 1,
+      "id": 8
+    },
+    {
+      "name": "teste",
+      "email": "mauro.rocha@saiteria.com.br",
+      "password": "324324",
+      "courseId": 1,
+      "id": 9
+    }
   ]
 }
