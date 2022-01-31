@@ -26,7 +26,7 @@ function CourseDetailView() {
                setLoading(false)
             }
         }, 
-        []
+        [id]
     )
     useEffect(()=> {
         setLoading(true)

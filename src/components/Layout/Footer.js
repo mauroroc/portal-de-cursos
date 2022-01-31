@@ -1,9 +1,18 @@
+import styled from 'styled-components'
+
 function Footer() {
     return (
-      <footer className='text-center footer'>
+      <FooterStyled className='text-center'>
         <p className='m-0'>[2022] Todos os direitos reservados ao Instituto Infnet</p>
-      </footer>
+      </FooterStyled>
     )
 }
+
+const FooterStyled = styled.footer`
+  background-color: ${props => props.theme.main};
+  color: #FFF;
+  margin-top: 20px;
+  padding: 5px 0;
+`
 
 export default Footer
