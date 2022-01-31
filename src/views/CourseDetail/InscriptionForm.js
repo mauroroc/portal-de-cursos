@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Alert, Button, Form } from "react-bootstrap"
+import { createInscription} from "../../services/Inscriptions.service.js"
 
 const initialValue = {
         name: '',
@@ -32,13 +33,8 @@ function InscriptionForm ({ courseId, onRegister }) {
                 courseId: parseInt(courseId)
             }
             
-            await fetch('http://localhost:3001/inscriptions', {
-                method: 'POST',
-                body: JSON.stringify(body),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
+            await createInscription(body)
+            
             setShowSucces(true)
             setFormData(initialValue)
             onRegister()

@@ -2,23 +2,23 @@ import { useEffect, useState } from "react"
 import { Container, Row, Col, Spinner, Alert } from "react-bootstrap"
 import CardCourse from "../../components/CardCourse"
 import Layout from "../../components/Layout"
+import { getCourses } from "../../services/Courses.service"
 
 function CoursesView () {
     const [loading, setLoading] = useState(true)
     const [courses, setCourses] = useState([])
     const [generalError, setGeneralError]  =useState()
     useEffect(()=>{
-        fetch('http://localhost:3001/courses')
-            .then(response=> response.json())
-            .then(data=> {
+        const fectchCourses = async () => {
+            try {
+                const data = await getCourses()
                 setCourses(data)
-            })
-            .catch(()=> {
+            } catch (error) {
                 setGeneralError('Não foi possível buscar os cursos. Recarregue a página.')
-            })
-            .finally(()=> {
-                setLoading(false)
-            })
+            }
+            setLoading(false)
+        }
+        fectchCourses()
     }, [])
     return (
         <Layout>
