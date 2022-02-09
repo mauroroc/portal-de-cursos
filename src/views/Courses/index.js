@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import { Container, Row, Col, Spinner, Alert } from "react-bootstrap"
+import { Container, Row, Col, Alert } from "react-bootstrap"
 import CardCourse from "../../components/CardCourse"
 import Layout from "../../components/Layout"
 import { getCourses } from "../../services/Courses.service"
+import { Loading } from "../../components/Loading";
 
 function CoursesView () {
     const [loading, setLoading] = useState(true)
@@ -29,9 +30,7 @@ function CoursesView () {
                 )}
                 {loading ? (
                     <div className = "text-center">
-                        <Spinner animation="border" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </Spinner>
+                        <Loading />
                     </div>
                 ) : (
                     <Row>

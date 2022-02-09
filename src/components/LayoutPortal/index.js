@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Container } from "react-bootstrap";
 import { Sidebar } from "./Sidebar";
 import { Topbar } from "./Topbar";
 
@@ -7,10 +8,14 @@ export function LayoutPortal({children}) {
   const openSidebar = () => setIsSidebarOpen(true)
   const closeSidebar = () => setIsSidebarOpen(false)
   return (
-    <div>
+    <div className="d-flex flex-grow-1">
         <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
-        <Topbar onOpen={openSidebar} />
-        {children}
+        <div className="flex-fill">
+          <Topbar onOpen={openSidebar} />
+          <Container fluid>
+            {children}
+          </Container>
+        </div>
     </div>
   )
 }

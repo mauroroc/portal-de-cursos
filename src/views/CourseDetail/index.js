@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState } from "react"
-import { Container, Spinner, Alert } from "react-bootstrap"
+import { Container, Alert } from "react-bootstrap"
 import { useParams } from "react-router-dom"
 import Layout from "../../components/Layout"
 import InscriptionForm from "./InscriptionForm"
 import Inscriptions from "./Inscriptions"
 import NotFoundView from '../NotFound'
 import { getCourseById } from "../../services/Courses.service"
+import { Loading } from "../../components/Loading"
 
 function CourseDetailView() {
     const { id } = useParams()
@@ -38,9 +39,7 @@ function CourseDetailView() {
     if (loading) {
         return (
             <div className = "text-center mt-4">
-                <Spinner animation="border" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </Spinner>
+                <Loading />
             </div>
         ) 
     }
