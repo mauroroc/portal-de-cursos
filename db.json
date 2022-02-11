@@ -20,27 +20,6 @@
       "shortDescription": "Aprenda CSS do básico ao avançado",
       "coordinator": "Cristiano Neto",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-    },
-    {
-      "id": 4,
-      "name": "Curso de Ruby",
-      "shortDescription": "Aprenda Ruby do básico ao avançado",
-      "coordinator": "Cristiano Neto",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-    },
-    {
-      "id": 5,
-      "name": "Curso de DotNet",
-      "shortDescription": "Aprenda DotNet do básico ao avançado",
-      "coordinator": "Cristiano Neto",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-    },
-    {
-      "id": 10,
-      "name": "Curso de Javascript",
-      "shortDescription": "Aprenda Javascript do básico ao avançado",
-      "coordinator": "Cristiano Neto",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry."
     }
   ],
   "inscriptions": [

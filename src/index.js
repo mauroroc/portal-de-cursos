@@ -7,12 +7,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from 'styled-components';
 import { theme } from "./assets/css/theme"
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
     <ThemeProvider theme={theme}>
       <App />
+      <ToastContainer />
     </ThemeProvider>      
     </BrowserRouter>
   </React.StrictMode>,

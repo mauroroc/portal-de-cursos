@@ -16,3 +16,11 @@ export const getCourses = async () => {
     return await response.json()
 }
 
+export const deleteCourse = async (id) => {
+    const response = await fetch(`${apiUrl}/courses/${id}`, {
+        method: 'DELETE'
+    })
+    if (!response.ok) {
+        throw new Error ('Response not OK.')
+    }
+}

@@ -7,8 +7,7 @@ export function PortalTitle ({ children, buttonText, buttonLink }) {
       <h1 className="mb-0">{children}</h1>
       {buttonText && buttonLink && (
         <Button className="ms-sm-3"size="sm" as={Link} to={buttonLink}>{buttonText}</Button>
-      )}
-      
+      )}      
     </div>    
   )
 }
