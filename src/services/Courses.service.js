@@ -24,3 +24,16 @@ export const deleteCourse = async (id) => {
         throw new Error ('Response not OK.')
     }
 }
+
+export const createCourse = async (courseData) => {
+    const response = await fetch(`${apiUrl}/courses`, {
+        method: 'POST',
+        body: JSON.stringify(courseData),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }) 
+    if (!response.ok) {
+        throw new Error ('Response not OK.')
+    }   
+}

@@ -45,7 +45,7 @@ export function AdminCourses() {
   }
   return (
     <LayoutPortal>
-      <PortalTitle buttonText='Novo Curso' buttonLink="/portal/add">Cursos Cadastrados</PortalTitle>
+      <PortalTitle buttonText='Novo Curso' buttonLink="/portal/cursos/add">Cursos Cadastrados</PortalTitle>
       {loading ? (
         <Loading />
       ) : (

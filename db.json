@@ -20,6 +20,20 @@
       "shortDescription": "Aprenda CSS do básico ao avançado",
       "coordinator": "Cristiano Neto",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    },
+    {
+      "name": "teste",
+      "coordinator": "adsad",
+      "shortDescription": "dsasgfsdgfgsdf",
+      "description": "fgsfggsgdgfdgssgdgsdgsdg g gsdgsgs\\ f d gs",
+      "id": 4
+    },
+    {
+      "name": "ccvxdsdg",
+      "coordinator": "dfgfdgfd",
+      "shortDescription": "gdfgfdgdf",
+      "description": "gdfgfdg",
+      "id": 5
     }
   ],
   "inscriptions": [

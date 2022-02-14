@@ -6,6 +6,7 @@ import CoursesView  from './views/Courses'
 import CourseDetailView from './views/CourseDetail';
 import { DashboardView } from './views/Dashboard';
 import { AdminCourses } from './views/AdminCourses';
+import { AdminAddCourse } from './views/AdminAddCourse';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/cursos/:id" element={<CourseDetailView />} />
       <Route path="/portal" element={<DashboardView />} />
       <Route path="/portal/cursos" element={<AdminCourses />} />
+      <Route path="/portal/cursos/add" element={<AdminAddCourse />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
     
