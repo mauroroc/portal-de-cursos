@@ -5,11 +5,13 @@ import { SidebarItem } from "./SidebarItem";
 const menuItems = [
   {
     to: '/portal',
-    text: 'Dashboard'
+    text: 'Dashboard',
+    checkAllPath: true
   },
   {
     to: '/portal/cursos',
-    text:'Cursos'
+    text:'Cursos',
+    checkAllPath: false
   }
 ]
 

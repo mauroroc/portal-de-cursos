@@ -20,20 +20,6 @@
       "shortDescription": "Aprenda CSS do básico ao avançado",
       "coordinator": "Cristiano Neto",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-    },
-    {
-      "name": "teste",
-      "coordinator": "adsad",
-      "shortDescription": "dsasgfsdgfgsdf",
-      "description": "fgsfggsgdgfdgssgdgsdgsdg g gsdgsgs\\ f d gs",
-      "id": 4
-    },
-    {
-      "name": "ccvxdsdg",
-      "coordinator": "dfgfdgfd",
-      "shortDescription": "gdfgfdgdf",
-      "description": "gdfgfdg",
-      "id": 5
     }
   ],
   "inscriptions": [
@@ -99,6 +85,15 @@
       "password": "324324",
       "courseId": 1,
       "id": 9
+    }
+  ],
+  "users": [
+    {
+      "email": "aluno@aluno.com",
+      "password": "$2a$10$i9O5Z7cfC7HYq9W1lRmuuOPRtp5mJQqnPOUdk/6AV2wALfc/imI..",
+      "name": "Aluno",
+      "type": 2,
+      "id": 1
     }
   ]
 }

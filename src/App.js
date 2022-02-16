@@ -8,6 +8,7 @@ import { DashboardView } from './views/Dashboard';
 import { AdminCourses } from './views/AdminCourses';
 import { AdminAddCourse } from './views/AdminAddCourse';
 import { AdminEditCourse } from './views/AdminEditCourse';
+import { Login } from './views/Login';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/portal/cursos" element={<AdminCourses />} />
       <Route path="/portal/cursos/add" element={<AdminAddCourse />} />
       <Route path="/portal/cursos/:id" element={<AdminEditCourse />} />
+      <Route path="/portal/login" element={<Login />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
     

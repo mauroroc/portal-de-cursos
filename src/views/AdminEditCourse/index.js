@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { LayoutPortal } from "../../components/LayoutPortal";
 import { Loading } from "../../components/Loading";
 import { PortalTitle } from "../../components/PortalTitle";
 import { UpsertCourse } from "../../components/UpsertCourse";
-import { getCourseById } from "../../services/Courses.service";
+import { getCourseById, updateCourse } from "../../services/Courses.service";
 
 export function AdminEditCourse() {
   const { id }  = useParams()
+  const navigate = useNavigate()
   const [course, setCourse] = useState()
   useEffect(()=>{
     const fetchCourse = async() => {
@@ -21,11 +22,20 @@ export function AdminEditCourse() {
     }
     fetchCourse()
   }, [id])
+  const handleSubmit = async (values) => {
+    try {
+      await updateCourse(id, values)
+      navigate('/portal/cursos')
+      toast.success('Curso editado com sucesso.')
+    } catch (error) {
+      toast.error('Falha ao editar curso.')
+    }
+  }
   return (
     <LayoutPortal>
       <PortalTitle>Editar Curso</PortalTitle>
       { course ? (
-        <UpsertCourse initialState={course} buttonLabel="Alterar" />
+        <UpsertCourse initialState={course} buttonLabel="Alterar" onSubmit={handleSubmit} />
       ) : (
         <Loading/>
       )}      

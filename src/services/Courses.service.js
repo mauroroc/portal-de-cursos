@@ -37,3 +37,16 @@ export const createCourse = async (courseData) => {
         throw new Error ('Response not OK.')
     }   
 }
+
+export const updateCourse = async(id, courseData) => {
+    const response = await fetch(`${apiUrl}/courses/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(courseData),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }) 
+    if (!response.ok) {
+        throw new Error ('Response not OK.')
+    }  
+}
