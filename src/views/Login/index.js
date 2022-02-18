@@ -1,11 +1,12 @@
 import { Container } from "react-bootstrap"
 import styled from "styled-components"
+import { AuthForm } from "../../components/AuthForm"
 
 export function Login() {
   return (
     <Background className='p-3 d-flex align-items-center'>
-      <Container className='bg-white rounded'>
-        <p>Login</p>
+      <Container className='bg-white rounded p-3 p-md-5'>
+        <AuthForm />
       </Container>      
     </Background>
   )
