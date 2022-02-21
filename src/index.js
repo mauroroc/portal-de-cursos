@@ -9,15 +9,19 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from "./assets/css/theme"
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import { Provider as ReduxProvider } from 'react-redux'
+import { store } from './store/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <App />
-      <ToastContainer />
-    </ThemeProvider>      
-    </BrowserRouter>
+    <ReduxProvider store={store}>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <App />
+          <ToastContainer />
+        </ThemeProvider>      
+      </BrowserRouter>
+    </ReduxProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
