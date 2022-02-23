@@ -1,5 +1,5 @@
 import { apiUrl } from "./Api.service"
-import { setStorageItem } from "./Storage.service"
+import { removeStorageItem, setStorageItem } from "./Storage.service"
 
 export const login = async (loginData) => {
   const response = await fetch(`${apiUrl}/login`, {
@@ -9,7 +9,7 @@ export const login = async (loginData) => {
           'Content-Type': 'application/json'
       }
   }) 
-  const data = await response.json()
+  const data = await response.json()  
   if (!response.ok) {     
     const message =  data === 'Incorrect password' || data === 'Cannot find user'
       ? 'Erro ao logar.'
@@ -21,4 +21,9 @@ export const login = async (loginData) => {
     ...data.user
   }
   setStorageItem('user', JSON.stringify(userdata))  
+  return userdata
+}
+
+export const logout = () => {
+  removeStorageItem('user')
 }

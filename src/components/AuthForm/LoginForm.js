@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { Button, Form } from "react-bootstrap"
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import { login } from "../../services/User.service"
 
@@ -16,10 +18,19 @@ export function LoginForm() {
     newFormData[event.target.name] = event.target.value
     setFormData(newFormData)
   } 
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const handleSubmit= async (event) => {
     event.preventDefault()
     try {
       setIsSubmiting(true)
+      const userData = await(login(formData))         
+      const action = {
+        type: 'USER_LOGIN',
+        payload: userData
+      }      
+      dispatch(action)
+      navigate('/portal')
       await login(formData)
     } catch (error) {
       const message = error.message === "Erro ao logar." ? "Login ou senha inválido" : "Falha no login."
