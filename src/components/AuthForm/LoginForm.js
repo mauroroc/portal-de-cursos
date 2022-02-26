@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import { login } from "../../services/User.service"
+import { userLogin } from "../../store/User/User.actions"
 
 export function LoginForm() {
   const [isSubmiting, setIsSubmiting] = useState(false)
@@ -24,19 +25,14 @@ export function LoginForm() {
     event.preventDefault()
     try {
       setIsSubmiting(true)
-      const userData = await(login(formData))         
-      const action = {
-        type: 'USER_LOGIN',
-        payload: userData
-      }      
-      dispatch(action)
-      navigate('/portal')
-      await login(formData)
+      const userData = await(login(formData))                 
+      dispatch(userLogin(userData) )
+      navigate('/portal')      
     } catch (error) {
       const message = error.message === "Erro ao logar." ? "Login ou senha inválido" : "Falha no login."
       toast.error(message)
-    }
-    setIsSubmiting(false)
+      setIsSubmiting(false)
+    }    
   }
   return (
     <>

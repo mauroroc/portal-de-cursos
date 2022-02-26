@@ -94,6 +94,13 @@
       "name": "Aluno",
       "type": 2,
       "id": 1
+    },
+    {
+      "email": "prof@prof.com",
+      "password": "$2a$10$xrqKvmiYlwoEpqVqgyi.u.Y6wuZEiSGdD12RghfvUr5SqAuI7/icC",
+      "name": "Prof",
+      "type": 1,
+      "id": 2
     }
   ]
 }

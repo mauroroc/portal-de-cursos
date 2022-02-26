@@ -4,21 +4,16 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { logout } from "../../services/User.service";
-
-const selectUser = (state) => {
-  return state
-}
+import { userLogout } from "../../store/User/User.actions";
+import { selectUser } from "../../store/User/User.selectors";
 
 export function Topbar({onOpen}) {
   const user = useSelector(selectUser)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const handleLogout = () => {
-    logout()
-    const action = {
-      type: 'USER_LOGOUT'
-    }
-    dispatch(action)
+    logout()    
+    dispatch(userLogout())
     navigate('/portal/login')
   }
   return (
