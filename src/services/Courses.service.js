@@ -1,4 +1,4 @@
-import { apiUrl } from "./Api.service"
+import { apiUrl, getAuthorizationHeader } from "./Api.service"
 
 export async function getCourseById(id) {
     const response = await fetch(`${apiUrl}/courses/${id}?_embed=inscriptions`)
@@ -16,3 +16,40 @@ export const getCourses = async () => {
     return await response.json()
 }
 
+export const deleteCourse = async (id) => {    
+    const response = await fetch(`${apiUrl}/courses/${id}`, {
+        method: 'DELETE',
+        headers: getAuthorizationHeader()
+    })
+    if (!response.ok) {
+        throw new Error ('Response not OK.')
+    }
+}
+
+export const createCourse = async (courseData) => {
+    const response = await fetch(`${apiUrl}/courses`, {
+        method: 'POST',
+        body: JSON.stringify(courseData),
+        headers: {
+            'Content-Type': 'application/json',
+            ...getAuthorizationHeader()
+        }
+    }) 
+    if (!response.ok) {
+        throw new Error ('Response not OK.')
+    }   
+}
+
+export const updateCourse = async(id, courseData) => {
+    const response = await fetch(`${apiUrl}/courses/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(courseData),
+        headers: {
+            'Content-Type': 'application/json',
+            ...getAuthorizationHeader()
+        }
+    }) 
+    if (!response.ok) {
+        throw new Error ('Response not OK.')
+    }  
+}
