@@ -1,18 +1,18 @@
 import { useState } from "react"
-import { Alert, Button, Form } from "react-bootstrap"
-//import { createInscription} from "../../services/Inscriptions.service.js"
+import { Button, Form } from "react-bootstrap"
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
+import { createUser } from "../../services/User.service"
+import { userLogin } from "../../store/User/User.actions"
 
-const initialValue = {
+export function RegisterForm ({ onRegister }) {    
+    const [isSubmiting, setIsSubmiting] = useState(false)    
+    const [formData, setFormData] = useState({
         name: '',
         email: '',
         password: ''
-}
-
-export function RegisterForm ({ courseId, onRegister }) {
-    const [generalError, setGeneralError] = useState()
-    const [isSubmiting, setIsSubmiting] = useState(false)
-    const [showSuccess, setShowSucces] = useState(false)
-    const [formData, setFormData] = useState(initialValue)
+})
 
     const handleChange = (event) => {
         const newFormData = {
@@ -21,36 +21,29 @@ export function RegisterForm ({ courseId, onRegister }) {
         newFormData[event.target.name] = event.target.value
         setFormData(newFormData)
     }
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event) => {        
         try{
-            event.preventDefault()
-            setGeneralError(undefined)
-            setShowSucces(false)
+            event.preventDefault()                        
             setIsSubmiting(true)
-            //const body = {
-            //    ...formData,
-            //    courseId: parseInt(courseId)
-            //}
-            //await createInscription(body)
-            
-            setShowSucces(true)
-            setFormData(initialValue)
-            onRegister()
-        } catch {
-            setGeneralError('Falha ao realizar inscrição. Tente novamente.')
-        }   
-        setIsSubmiting(false)
+            const createdUserData = await createUser(formData)                                                
+            const action = userLogin(createdUserData)
+            dispatch(action)
+            navigate('/portal')
+        } catch (error) {
+            if (error.message === 'Email already exist') {
+                toast.error('Este e-mail ja está em uso')
+            } else {
+                toast.error('Falha ao fazer o cadastro')
+            } 
+            setIsSubmiting(false)           
+        }           
     }
     return (
         <>
-            <h2>Cadastre-se</h2>
-            {generalError && (
-                <Alert variant="danger">{generalError}</Alert>
-            )}
-            {showSuccess && (
-                <Alert variant="success">Inscrito com sucesso.</Alert>
-            )}
+            <h2>Cadastre-se</h2>            
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="inscription-name">
                     <Form.Label className="mb-0">Nome</Form.Label>
@@ -80,6 +73,7 @@ export function RegisterForm ({ courseId, onRegister }) {
                         value={formData.password}
                         name='password'
                         onChange={handleChange}
+                        minLength={4}
                         required />
                 </Form.Group>
                 <Button type="submit" disabled={isSubmiting}>{isSubmiting ? "Enviando" : "Inscrever"}</Button>

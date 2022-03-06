@@ -1,90 +1,41 @@
+import { Button } from "react-bootstrap"
 import { useState } from "react"
-import { Alert, Button, Form } from "react-bootstrap"
+import { useSelector } from "react-redux"
 import { createInscription} from "../../services/Inscriptions.service.js"
-
-const initialValue = {
-        name: '',
-        email: '',
-        password: ''
-}
+import { selectUser } from "../../store/User/User.selectors.js"
+import { AuthForm } from "../../components/AuthForm"
+import { toast } from "react-toastify"
 
 function InscriptionForm ({ courseId, onRegister }) {
-    const [generalError, setGeneralError] = useState()
-    const [isSubmiting, setIsSubmiting] = useState(false)
-    const [showSuccess, setShowSucces] = useState(false)
-    const [formData, setFormData] = useState(initialValue)
+    const user = useSelector(selectUser)
+    const [isSubmiting, setIsSubmiting] = useState(false)    
 
-    const handleChange = (event) => {
-        const newFormData = {
-            ...formData
-        }
-        newFormData[event.target.name] = event.target.value
-        setFormData(newFormData)
-    }
-
-    const handleSubmit = async (event) => {
-        try{
-            event.preventDefault()
-            setGeneralError(undefined)
-            setShowSucces(false)
+    const handleInscription = async () => {
+        try{            
             setIsSubmiting(true)
             const body = {
-                ...formData,
-                courseId: parseInt(courseId)
+                courseId: parseInt(courseId),
+                userId: user.id,
+                name: user.name,
+                email: user.email
             }
             
             await createInscription(body)
-            
-            setShowSucces(true)
-            setFormData(initialValue)
+            toast.success("Você foi inscrito com sucesso.")                      
             onRegister()
         } catch {
-            setGeneralError('Falha ao realizar inscrição. Tente novamente.')
+            toast.error("Falha ao fazer inscrição.")
         }   
         setIsSubmiting(false)
     }
     return (
         <>
             <h2>Formulário de Inscrição</h2>
-            {generalError && (
-                <Alert variant="danger">{generalError}</Alert>
+            { user ? (
+                <Button onClick={handleInscription} disabled={isSubmiting}>Inscrever</Button>
+            ) : (
+                <AuthForm />
             )}
-            {showSuccess && (
-                <Alert variant="success">Inscrito com sucesso.</Alert>
-            )}
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="inscription-name">
-                    <Form.Label className="mb-0">Nome</Form.Label>
-                    <Form.Control 
-                        type="text" 
-                        placeholder="Informe seu nome"
-                        value={formData.name}
-                        name='name'
-                        onChange={handleChange} 
-                        required />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="inscription-email">
-                    <Form.Label className="mb-0">Email</Form.Label>
-                    <Form.Control 
-                        type="email" 
-                        placeholder="Informe seu email" 
-                        value={formData.email}
-                        name='email'
-                        onChange={handleChange}
-                        required />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="inscription-password">
-                    <Form.Label className="mb-0">Senha</Form.Label>
-                    <Form.Control 
-                        type="password" 
-                        placeholder="Informe sua senha" 
-                        value={formData.password}
-                        name='password'
-                        onChange={handleChange}
-                        required />
-                </Form.Group>
-                <Button type="submit" disabled={isSubmiting}>{isSubmiting ? "Enviando" : "Inscrever"}</Button>
-            </Form> 
         </>
     )
 }

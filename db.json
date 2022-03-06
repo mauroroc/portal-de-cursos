@@ -101,6 +101,48 @@
       "name": "Prof",
       "type": 1,
       "id": 2
+    },
+    {
+      "email": "teste@mauro",
+      "password": "$2a$10$6bw4fGe4XEMEX/xW8cowxuP1P00qZ8cGTkAGE3geIUkPu/xbopqju",
+      "name": "Teste Mauro",
+      "type": 2,
+      "id": 3
+    },
+    {
+      "email": "teste2@aluno.com",
+      "password": "$2a$10$IKUDhr43A2jRid1T6q2FZe7BHXP4HxlNkbkngfbq0HWX/HLiaazs2",
+      "name": "teste2",
+      "type": 2,
+      "id": 4
+    },
+    {
+      "email": "teste3@aluno.com",
+      "password": "$2a$10$A.LqounPNeBMhcuMLf/sa.O08W/vZz.S6Eo1Q5KYk0KdSRGa7MEr6",
+      "name": "teste3",
+      "type": 2,
+      "id": 5
+    },
+    {
+      "email": "teste@aluno.com",
+      "password": "$2a$10$8sAibqNZ9dZnjbh9vYcm5uNFnThvBMKnDW0VeehFKdDwQlXxdytSC",
+      "name": "teste4",
+      "type": 2,
+      "id": 6
+    },
+    {
+      "email": "teste6@aluno.com",
+      "password": "$2a$10$kIRbOpjT0RBVFMDOLTi03OQiUWALGHGrw.T3mFhqoBpVspZ25354a",
+      "name": "teste 5",
+      "type": 2,
+      "id": 7
+    },
+    {
+      "email": "teste7@aluno.com",
+      "password": "$2a$10$v7S5HUvEG6D3vmQDWoOUQOHrKuNzP3BqgpS5of7wpekXm5QzSswoK",
+      "name": "teste7",
+      "type": 2,
+      "id": 8
     }
   ]
 }
